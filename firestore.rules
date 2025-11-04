@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users can read and write their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Progress tracking - users can manage their own progress
+    match /progress/{progressId} {
+      allow read, write: if request.auth != null &&
+        resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null &&
+        request.auth.uid == request.resource.data.userId;
+    }
+
+    // Summaries - users can read all summaries, but only authenticated users can create
+    match /summaries/{summaryId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Auth required for writing
+    }
+
+    // Quizzes - public read, auth required for write
+    match /quizzes/{quizId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Auth required for writing
+    }
+
+    // Chapters - public read, admin only write
+    match /chapters/{chapterId} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Admin collection - admin only
+    match /admin/{document=**} {
+      allow read, write: if request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+  }
+}

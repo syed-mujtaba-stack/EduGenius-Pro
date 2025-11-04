@@ -1,0 +1,27 @@
+{
+  "users": {
+    ".read": "auth != null",
+    ".write": "auth != null && auth.uid == $uid",
+    ".indexOn": ["email", "role"]
+  },
+  "progress": {
+    ".read": "auth != null",
+    ".write": "auth != null && auth.uid == $userId",
+    ".indexOn": ["userId", "chapterId", "completed"]
+  },
+  "summaries": {
+    ".read": "true",
+    ".write": "auth != null",
+    ".indexOn": ["chapterId", "language", "createdAt"]
+  },
+  "quizzes": {
+    ".read": "true",
+    ".write": "auth != null",
+    ".indexOn": ["chapterId", "difficulty"]
+  },
+  "chapters": {
+    ".read": "true",
+    ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() == 'admin'",
+    ".indexOn": ["subject", "grade", "createdAt"]
+  }
+}
