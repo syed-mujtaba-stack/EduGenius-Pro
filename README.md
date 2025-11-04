@@ -286,6 +286,8 @@ We love your input! We want to make contributing to this project as easy and tra
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF6B6B&center=true&vCenter=true&width=435&lines=Happy+Learning!;Keep+Coding!;Stay+Curious!;Never+Stop+Learning!" alt="Typing SVG" />
 
+**Developed by Syed Mujtaba Abbas**
+
 **Made with ❤️ for students worldwide**
 
 </div>
