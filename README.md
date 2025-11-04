@@ -75,8 +75,8 @@ EduGenius Pro/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/edugenius-pro.git
-   cd edugenius-pro
+   git clone https://github.com/syed-mujtaba-stack/EduGenius-Pro.git
+   cd EduGenius-Pro
    ```
 
 2. **Install frontend dependencies**
