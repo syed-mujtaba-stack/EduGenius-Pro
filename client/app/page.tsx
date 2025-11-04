@@ -1,13 +1,44 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { BookOpen, CheckCircle, BarChart3, Flame, Brain } from 'lucide-react';
+import { useAuth } from '@/lib/auth-context';
 
 export default function Dashboard() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/auth/login');
+    }
+  }, [user, loading, router]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null; // Will redirect in useEffect
+  }
+
   return (
     <div className="min-h-screen p-4 md:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6 md:mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Welcome back, Student!</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+            Welcome back, {user.displayName || 'Student'}!
+          </h1>
           <p className="text-gray-400 text-sm md:text-base">Continue your personalized learning journey with EduGenius Pro.</p>
         </div>
 
