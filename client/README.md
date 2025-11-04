@@ -270,4 +270,6 @@ npm run dev
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=61DAFB&center=true&vCenter=true&width=435&lines=Happy+Coding!;Build+Amazing+Apps!;Learn+Something+New!" alt="Typing SVG" />
 
+**Developed by Syed Mujtaba Abbas**
+
 </div>
