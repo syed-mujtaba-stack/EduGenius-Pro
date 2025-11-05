@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, BookOpen, Brain, BarChart3, Settings, GraduationCap } from 'lucide-react';
+import { Home, BookOpen, Brain, BarChart3, Settings, GraduationCap, User } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: Home },
   { name: 'Summaries', href: '/summaries', icon: BookOpen },
   { name: 'Quizzes', href: '/quizzes', icon: Brain },
   { name: 'Progress', href: '/progress', icon: BarChart3 },
+  { name: 'Profile', href: '/profile', icon: User },
   { name: 'Admin', href: '/admin', icon: Settings },
 ];
 

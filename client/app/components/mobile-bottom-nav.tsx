@@ -1,16 +1,14 @@
-'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, BookOpen, Brain, BarChart3, Settings } from 'lucide-react';
+import { Home, BookOpen, Brain, BarChart3, User, Settings } from 'lucide-react';
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: Home },
-  { name: 'Summaries', href: '/summaries', icon: BookOpen },
-  { name: 'Quizzes', href: '/quizzes', icon: Brain },
-  { name: 'Progress', href: '/progress', icon: BarChart3 },
-  { name: 'Admin', href: '/admin', icon: Settings },
+  { name: 'Home', href: '/', icon: Home },
+  { name: 'Learn', href: '/summaries', icon: BookOpen },
+  { name: 'Quiz', href: '/quizzes', icon: Brain },
+  { name: 'Profile', href: '/profile', icon: User },
+  { name: 'More', href: '/progress', icon: BarChart3 },
 ];
 
 export default function MobileBottomNav() {
