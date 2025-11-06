@@ -57,8 +57,8 @@ Examples:
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/edugenius-pro.git
-cd edugenius-pro
+git clone https://github.com/syed-mujtaba-stack/EduGenius-Pro.git
+cd EduGenius Pro
 
 # Install client dependencies
 cd client

@@ -10,10 +10,10 @@
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-<h3 align="center">🌟 Free AI-powered education platform designed to make personalized learning accessible for every student 🌟</h3>
+<h3 align="center">🌟 Complete AI-powered education platform with teacher dashboard, designed to make personalized learning accessible for every student and teacher 🌟</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF6B6B&center=true&vCenter=true&width=435&lines=AI-Powered+Learning;Interactive+Quizzes;Smart+Summaries;Progress+Tracking;Multi-Language+Support" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF6B6B&center=true&vCenter=true&width=435&lines=AI-Powered+Learning;Interactive+Quizzes;Smart+Summaries;Teacher+Dashboard;Class+Management;Progress+Tracking;Multi-Language+Support" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -37,22 +37,66 @@
 
 ## 🌟 Features
 
-### 🤖 AI-Powered Learning Tools
-- **Chapter Summaries**: AI-generated summaries in English and Urdu
-- **Smart Quizzes**: Automatic MCQ and short question generation
-- **Progress Analytics**: Detailed performance tracking and recommendations
-- **Personalized Learning**: Adaptive content based on student performance
+### 🤖 AI-Powered Learning
+- **AI Tutor**: Interactive AI tutor for instant help and explanations
+- **Learning Agents**: Specialized AI agents for targeted learning support
+- **Study Coach Agent**: Motivational mentor for study habits and time management
+- **Problem Solver Agent**: Expert in step-by-step mathematical and logical problem solving
+- **Analytics Agent**: AI-powered learning pattern analysis and personalized insights
+- **Smart Summaries**: AI-generated chapter summaries with key concepts
+- **Intelligent Quizzes**: Adaptive quizzes that adjust to student performance
+- **Personalized Learning**: AI recommendations based on learning patterns
+- **Practice Problem Generation**: AI-generated practice problems with solutions
+- **Concept Explanations**: Step-by-step explanations with examples and analogies
 
 ### 📱 Cross-Platform Experience
 - **Responsive Design**: Optimized for mobile and desktop
+- **Conditional UI**: Landing page shows full-width layout, dashboard includes sidebar navigation
 - **PWA Support**: Offline learning capabilities
-- **Native Mobile UI**: iOS/Android-style interface
-- **Dark Theme**: Modern dark UI design
+- **Native Mobile UI**: iOS/Android-style interface with bottom navigation
+- **Dark Theme**: Modern dark UI design throughout the platform
 
-### 👨‍🏫 Multi-User Support
-- **Student Dashboard**: Personalized learning experience
-- **Teacher/Admin Panel**: Content management and analytics
-- **Progress Tracking**: Comprehensive learning analytics
+### 👨‍🏫 Teacher Dashboard & Management
+- **Class Management**: Create, edit, and organize classes with student enrollment
+- **Assignment Creation**: Design assignments with due dates, points, and detailed instructions
+- **Student Enrollment**: Email-based enrollment and class code sharing system
+- **Grading System**: Comprehensive grading interface with feedback and progress tracking
+- **Real-time Analytics**: Detailed performance reports, submission tracking, and insights
+- **Google Classroom Integration**: Import courses, students, and assignments from Google Classroom
+- **Class Overview**: Monitor student progress, assignment completion, and engagement metrics
+
+### ⚡ Real-Time Features
+- **Live Notifications**: Instant alerts for grades, assignments, and announcements
+- **Real-Time Activity Feed**: Live updates of class activities and progress
+- **Instant Messaging**: Real-time communication between teachers and students
+- **Live Progress Updates**: Real-time progress tracking and analytics
+- **Collaborative Features**: Live collaboration tools for group learning
+
+### 👨‍🎓 Multi-User Support
+- **Student Dashboard**: Personalized learning experience with progress tracking
+- **Teacher/Admin Panel**: Complete classroom management and analytics
+- **Role-based Access**: Secure authentication and authorization system
+- **Real-time Collaboration**: Seamless interaction between teachers and students
+
+### 🌐 Landing Page & Chatbot
+- **Beautiful Landing Page**: Professional marketing page with platform overview (homepage)
+- **Interactive EduBot**: AI chatbot that answers questions about the platform
+- **Real-time Conversations**: Live chat with intelligent responses about features
+- **Quick Questions**: Pre-built questions for instant information
+- **Platform Showcase**: Visual presentation of all platform capabilities
+- **Dashboard Overview**: Comprehensive landing page showcasing all platform features
+- **Feature Showcase**: Interactive demonstrations of AI tutoring, test generation, and blog content
+- **Test Generator Integration**: Prominent display and quick access to assessment creation tools management system
+- **Dynamic Blog Posts**: Rich content with multiple block types and formatting
+- **Blog Images**: Visual content integration with responsive image display
+- **Image Optimization**: Proper sizing and lazy loading for blog content
+- **Visual Content Blocks**: Featured images and inline content images
+- **Reusable Navbar**: Consistent navigation component across public pages
+- **Test Generator**: Complete assessment creation and testing platform
+- **Multiple Question Types**: Support for multiple choice, true/false, short answer, and essay questions
+- **Test Creation Tools**: Visual test builder with drag-and-drop question management
+- **Test Taking Interface**: Interactive test-taking experience with real-time progress
+- **Automatic Grading**: Instant scoring for objective questions with detailed results
 
 ## 🚀 Tech Stack
 
@@ -81,10 +125,17 @@
 EduGenius Pro/
 ├── client/                 # Next.js Frontend
 │   ├── app/               # Next.js App Router
-│   ├── components/        # Reusable UI Components
-│   ├── public/            # Static Assets
-│   └── styles/            # Global Styles
+│   │   ├── teacher/       # Teacher Dashboard Routes
+│   │   │   ├── analytics/ # Performance Analytics
+│   │   │   ├── classes/   # Class Management
+│   │   │   └── assignments/# Assignment Management
+│   │   ├── components/    # Reusable UI Components
+│   │   ├── public/        # Static Assets
+│   │   └── styles/        # Global Styles
 ├── server/                 # Node.js Backend
+│   ├── src/
+│   │   ├── routes/        # API Routes (classes, assignments, grading)
+│   │   └── services/      # AI Services (OpenRouter, Gemini)
 ├── .github/               # GitHub Actions & Templates
 ├── .gitignore            # Git Ignore Rules
 ├── LICENSE               # MIT License
@@ -94,32 +145,28 @@ EduGenius Pro/
 ## 🛠️ Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- npm or yarn
-- Git
+- **Node.js**: Version 18.0 or higher
+- **npm**: Latest version recommended
+- **Windows Users**: Ensure you have proper environment variable support
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/syed-mujtaba-stack/EduGenius-Pro.git
-   cd EduGenius-Pro
+   cd EduGenius Pro
    ```
 
-2. **Set up Firebase** (Required)
-   - Follow the [Firebase Setup Guide](FIREBASE_SETUP.md) to configure authentication and database
-   - Copy environment variables to `client/.env.local` and `server/.env`
-
-3. **Install dependencies**
+2. **Install dependencies**
    ```bash
-   # Install all dependencies
+   cd client
    npm install
-
-   # Or separately:
-   cd client && npm install
-   cd ../server && npm install
    ```
 
+3. **Environment Setup**
+   - Copy `.env.example` to `.env.local`
+   - Configure your Firebase credentials
+   - Set up authentication and database URLs
 4. **Start development servers**
    ```bash
    # Terminal 1: Backend
@@ -133,6 +180,18 @@ EduGenius Pro/
    ```
    http://localhost:3000
    ```
+
+### Windows Build Compatibility
+
+The build script has been optimized for Windows compatibility:
+- **Build Command**: `npm run build` now properly sets environment variables on Windows
+- **Issue Fixed**: Previous Unix-style `TURBOPACK=0` variable setting didn't work on Windows
+- **Solution**: Updated to `set TURBOPACK=0&& next build` for Windows compatibility
+
+If you encounter any build issues on Windows, ensure you have:
+- Node.js version 18.0 or higher
+- npm version 8.0 or higher
+- Proper command prompt or PowerShell permissions
 
 ## 📱 Mobile App Experience
 
@@ -160,11 +219,14 @@ EduGenius Pro features a native mobile app-like experience:
 - [x] Real-time data synchronization
 
 ### Phase 3: Advanced Features 🔄
-- [ ] AI integration (OpenRouter/OpenAI)
+- [x] **AI integration (OpenRouter/OpenAI & Gemini)**
+- [x] **Teacher Dashboard & Class Management**
+- [x] **Assignment Creation & Grading System**
+- [x] **Student Enrollment & Management**
+- [x] **Real-time Analytics & Performance Reports**
 - [ ] Offline PWA support
 - [ ] Urdu language localization
 - [ ] Teacher collaboration tools
-- [ ] Advanced analytics dashboard
 - [ ] File upload capabilities
 
 ### Phase 4: Launch 🚀
@@ -222,10 +284,12 @@ EduGenius Pro features a native mobile app-like experience:
 - Native mobile app-like experience
 - Touch-friendly interactions and gestures
 
-### ✨ Smooth Animations
-- Micro-interactions for better user feedback
-- Loading states and transitions
-- Progressive enhancement for performance
+### 👨‍🏫 Teacher Experience
+- Comprehensive dashboard with class overview and quick actions
+- Intuitive class creation with student enrollment management
+- Assignment builder with detailed grading interfaces
+- Real-time analytics with performance insights and recommendations
+- Seamless student-teacher collaboration tools
 
 </div>
 
@@ -252,6 +316,23 @@ We love your input! We want to make contributing to this project as easy and tra
 - Test your changes before submitting
 - Update documentation for new features
 - Follow the existing code style
+
+</div>
+
+---
+
+## 🔗 Links
+
+<div align="center">
+
+### 📖 Documentation
+[![Contributing Guide](https://img.shields.io/badge/Contributing-Guide-blue?style=for-the-badge)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/Code-Of_Conduct-orange?style=for-the-badge)](CODE_OF_CONDUCT.md)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-red?style=for-the-badge)](SECURITY.md)
+
+### 🚀 Quick Start
+[![Get Started](https://img.shields.io/badge/Get-Started-green?style=for-the-badge)](README.md#get-started)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-purple?style=for-the-badge)](https://edugenius-pro.vercel.app)
 
 </div>
 
@@ -288,7 +369,7 @@ We love your input! We want to make contributing to this project as easy and tra
 
 **Developed by Syed Mujtaba Abbas**
 
-**Made with ❤️ for students worldwide**
+**Made with ❤️ for students and teachers worldwide**
 
 </div>
 
