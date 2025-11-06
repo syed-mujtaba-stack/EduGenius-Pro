@@ -26,11 +26,8 @@ import {
   Shield,
   Rocket,
   Heart,
-  Lightbulb,
-  FileText
+  Lightbulb
 } from 'lucide-react';
-import { useAuth } from '@/lib/auth-context';
-import Navbar from '@/components/Navbar';
 
 interface Message {
   id: string;
@@ -60,9 +57,9 @@ const platformInfo = {
       description: "Complete teacher dashboard with assignment creation, grading, and analytics"
     },
     {
-      icon: FileText,
-      title: "Test Generator",
-      description: "Create intelligent assessments with multiple question types, automatic grading, and detailed analytics"
+      icon: Trophy,
+      title: "Personalized Experience",
+      description: "Adaptive learning paths, progress tracking, and customized recommendations"
     },
     {
       icon: Globe,
@@ -119,7 +116,6 @@ const botResponses = {
 
 export default function LandingPage() {
   const router = useRouter();
-  const { user, loading } = useAuth();
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -137,16 +133,6 @@ export default function LandingPage() {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  useEffect(() => {
-    if (!loading) {
-      if (user) {
-        // Redirect authenticated users to dashboard
-        router.push('/dashboard');
-      }
-      // Unauthenticated users stay on landing page
-    }
-  }, [user, loading, router]);
 
   useEffect(() => {
     scrollToBottom();
@@ -223,7 +209,29 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Navigation */}
-      <Navbar />
+      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-2">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
+                <Brain className="h-6 w-6 text-white" />
+              </div>
+              <span className="text-xl font-bold text-gray-900">EduGenius Pro</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 transition-colors">
+                Sign In
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
@@ -256,7 +264,7 @@ export default function LandingPage() {
               </Link>
               <button
                 onClick={() => setIsChatOpen(true)}
-                className="bg-white text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 flex items-center shadow-lg"
+                className="bg-white text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold border border-gray-300 hover:bg-gray-50 transition-all duration-200 transform hover:scale-105 flex items-center shadow-lg"
               >
                 <Bot className="mr-2 h-5 w-5" />
                 Talk to EduBot
@@ -318,125 +326,6 @@ export default function LandingPage() {
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Test Generator Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <FileText className="h-4 w-4 mr-2" />
-                Test Generator
-              </div>
-
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Create Intelligent Assessments with AI
-              </h2>
-
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Design comprehensive tests with multiple question types, automatic grading,
-                and detailed analytics. Perfect for educators who want to focus on teaching,
-                not grading.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Multiple choice, true/false, short answer, and essay questions</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Automatic grading for objective questions</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Real-time progress tracking and analytics</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Customizable time limits and scoring</span>
-                </div>
-              </div>
-
-              <Link
-                href="/test-generator"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105 inline-flex items-center shadow-lg"
-              >
-                Start Creating Tests
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-2xl">
-                <div className="space-y-6">
-                  {/* Test Creation Mockup */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-semibold text-gray-900">Mathematics Quiz</h4>
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Published</span>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Questions:</span>
-                        <span className="font-medium">15</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Time Limit:</span>
-                        <span className="font-medium">45 min</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Grade Level:</span>
-                        <span className="font-medium">9-10</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Question Types */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white rounded-lg p-4 shadow-sm text-center">
-                      <div className="text-2xl mb-2">📝</div>
-                      <div className="text-sm font-medium text-gray-900">Multiple Choice</div>
-                      <div className="text-xs text-gray-600">8 questions</div>
-                    </div>
-                    <div className="bg-white rounded-lg p-4 shadow-sm text-center">
-                      <div className="text-2xl mb-2">✅</div>
-                      <div className="text-sm font-medium text-gray-900">True/False</div>
-                      <div className="text-xs text-gray-600">5 questions</div>
-                    </div>
-                  </div>
-
-                  {/* Analytics Preview */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <h4 className="font-semibold text-gray-900 mb-3">Recent Results</h4>
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Class Average:</span>
-                        <span className="font-medium text-green-600">87%</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Students Tested:</span>
-                        <span className="font-medium">28</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                        <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full" style={{width: '87%'}}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                94% Avg Score
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                50+ Tests Created
-              </div>
-            </div>
           </div>
         </div>
       </section>

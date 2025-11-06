@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, BookOpen, Brain, BarChart3, Settings, GraduationCap, User } from 'lucide-react';
+import { Home, BookOpen, Brain, BarChart3, TrendingUp, Settings, GraduationCap, User, Users, FileText, MessageCircle } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: Home },
   { name: 'Summaries', href: '/summaries', icon: BookOpen },
   { name: 'Quizzes', href: '/quizzes', icon: Brain },
   { name: 'Progress', href: '/progress', icon: BarChart3 },
+  { name: 'Analytics', href: '/analytics', icon: TrendingUp },
+  { name: 'Files', href: '/files', icon: FileText },
+  { name: 'Study Groups', href: '/study-groups', icon: MessageCircle },
+  { name: 'Teacher', href: '/teacher', icon: Users },
   { name: 'Profile', href: '/profile', icon: User },
   { name: 'Admin', href: '/admin', icon: Settings },
 ];

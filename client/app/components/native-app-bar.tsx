@@ -1,6 +1,7 @@
 'use client';
 
 import { GraduationCap, Menu } from 'lucide-react';
+import LanguageSwitcher from './language-switcher';
 
 interface NativeAppBarProps {
   title?: string;
@@ -27,8 +28,11 @@ export default function NativeAppBar({
         <GraduationCap className="h-6 w-6 text-blue-400" />
         <h1 className="text-lg font-semibold text-white">{title}</h1>
       </div>
-      <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
-        <span className="text-white text-sm font-medium">S</span>
+      <div className="flex items-center space-x-2">
+        <LanguageSwitcher />
+        <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
+          <span className="text-white text-sm font-medium">S</span>
+        </div>
       </div>
     </div>
   );
